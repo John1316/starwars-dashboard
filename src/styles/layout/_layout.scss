@@ -54,6 +54,9 @@
     width: calc(100% - 280px);
     height: calc(100% - 70px);
     padding: 24px;
+    @media screen and (max-width: 660px) {
+      padding: 12px;
+    }
     margin-left: 280px;
     // background: var(--imperial-black);
 
