@@ -3,6 +3,7 @@
 import { NextUIProvider } from '@nextui-org/react'
 import '../styles/style.scss'
 import { useEffect } from 'react';
+import { PeopleContextProvider } from '@/context/PeopleContext';
 
 
 
@@ -57,9 +58,11 @@ return (
       <title>Valify</title>
     </head>
     <body>
-      <NextUIProvider>
-        {children}
-      </NextUIProvider>
+      <PeopleContextProvider>
+        <NextUIProvider>
+          {children}
+        </NextUIProvider>
+      </PeopleContextProvider>
     </body>
   </html>
 )
