@@ -1,6 +1,7 @@
 // components/Table/Table.jsx
 import React from 'react';
 import { ChevronUp, ChevronDown, ChevronsUpDown } from 'lucide-react';
+import LoadingScreen from '../LoadingScreen';
 
 export default function TableLayout({
     columns,
@@ -15,10 +16,7 @@ export default function TableLayout({
         <div className="w-full h-full overflow-x-auto rounded-lg border-2 border-[var(--lightsaber-blue)]">
             {(() => {
                 if (isLoading) {
-                    return <div className="flex items-center justify-center h-full gap-2 ">
-                        <div className="h-5 w-5 animate-spin rounded-full border-2 border-[var(--lightsaber-blue)] border-t-transparent"></div>
-                        <span>Loading...</span>
-                    </div>
+                    return <LoadingScreen />
 
                 }
                 return <table className="w-full min-w-full table-auto">

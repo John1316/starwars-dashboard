@@ -25,7 +25,7 @@ type PaginationProps = {
 };
 
 type SearchInputProps = {
-    value: string;
+    value?: string;
     onChange: (value: string) => void;
     placeholder?: string;
     className?: string;
