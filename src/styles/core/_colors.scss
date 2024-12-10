@@ -1,0 +1,124 @@
+// styles/theme-utilities.scss
+
+// Define our theme colors map
+$theme-colors: (
+  'imperial-black': var(--imperial-black),
+  'space-gray': var(--space-gray),
+  'lightsaber-blue': var(--lightsaber-blue),
+  'rebel-yellow': var(--rebel-yellow),
+  'sith-red': var(--sith-red),
+  'star-white': var(--star-white),
+  'hologram-blue': var(--hologram-blue)
+);
+
+// Generate text color classes
+@each $name, $color in $theme-colors {
+  .text-#{$name} {
+    color: $color;
+  }
+  
+  // Hover variant
+  .hover\:text-#{$name}:hover {
+    color: $color;
+  }
+  
+  // Focus variant
+  .focus\:text-#{$name}:focus {
+    color: $color;
+  }
+}
+
+// Generate border color classes
+@each $name, $color in $theme-colors {
+  // Border color
+  .border-#{$name} {
+    border-color: $color;
+  }
+  
+  // Border specific sides
+  .border-t-#{$name} {
+    border-top-color: $color;
+  }
+  
+  .border-r-#{$name} {
+    border-right-color: $color;
+  }
+  
+  .border-b-#{$name} {
+    border-bottom-color: $color;
+  }
+  
+  .border-l-#{$name} {
+    border-left-color: $color;
+  }
+  
+  // Hover variants
+  .hover\:border-#{$name}:hover {
+    border-color: $color;
+  }
+  
+  // Focus variants
+  .focus\:border-#{$name}:focus {
+    border-color: $color;
+  }
+}
+
+// Generate background color classes
+@each $name, $color in $theme-colors {
+  .bg-#{$name} {
+    background-color: $color;
+  }
+  
+  // Hover variant
+  .hover\:bg-#{$name}:hover {
+    background-color: $color;
+  }
+  
+  // Focus variant
+  .focus\:bg-#{$name}:focus {
+    background-color: $color;
+  }
+}
+
+// Generate outline color classes
+@each $name, $color in $theme-colors {
+  .outline-#{$name} {
+    outline-color: $color;
+  }
+}
+
+// Generate ring color classes (for focus states)
+@each $name, $color in $theme-colors {
+  .ring-#{$name} {
+    --tw-ring-color: $color;
+  }
+}
+
+// Generate gradient classes
+@each $name, $color in $theme-colors {
+  .from-#{$name} {
+    --tw-gradient-from: $color;
+  }
+  
+  .to-#{$name} {
+    --tw-gradient-to: $color;
+  }
+  
+  .via-#{$name} {
+    --tw-gradient-stops: var(--tw-gradient-from), $color, var(--tw-gradient-to);
+  }
+}
+
+// Generate divide color classes (for borders between elements)
+@each $name, $color in $theme-colors {
+  .divide-#{$name} > :not([hidden]) ~ :not([hidden]) {
+    border-color: $color;
+  }
+}
+
+// Generate placeholder color classes
+@each $name, $color in $theme-colors {
+  .placeholder-#{$name}::placeholder {
+    color: $color;
+  }
+}
