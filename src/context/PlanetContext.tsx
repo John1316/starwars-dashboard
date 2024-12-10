@@ -2,19 +2,19 @@
   
 
   // contexts/StarWarsContext/StarWarsContext.tsx
-  import React, { createContext, useContext, useReducer, useCallback } from 'react';
-  import { getPeopleList } from '@/api/services/people.service';
+  import React, { createContext, useReducer, useCallback } from 'react';
+  import { getPlanetsList } from '@/api/services/planets.service';
 //   import { StarWarsContextState, StarWarsContextValue, Character } from './types';
   
   // Create context
-  export const PeopleContext = createContext<StarWarsContextValue | undefined>(undefined);
+  export const PlanetContext = createContext<PlanetContextValue | undefined>(undefined);
   
 
   
   // Initial state
-  const initialState: StarWarsContextState = {
-    characters: [],
-    selectedCharacter: null,
+  const initialState: PlanetContextState = {
+    planets: [],
+    selectedPlanet: null,
     currentPage: 1,
     totalPages: 1,
     searchQuery: '',
@@ -24,12 +24,12 @@
   };
   
   // Reducer
-  function PeopleReducer(state: StarWarsContextState, action: ActionType): StarWarsContextState {
+  function StarshipReducer(state: PlanetContextState, action: ActionTypePlanet): PlanetContextState {
     switch (action.type) {
-      case 'SET_CHARACTERS':
-        return { ...state, characters: action.payload };
-      case 'SET_SELECTED_CHARACTER':
-        return { ...state, selectedCharacter: action.payload };
+      case 'SET_PLANETS':
+        return { ...state, planets: action.payload };
+      case 'SET_SELECTED_PLANET':
+        return { ...state, selectedPlanet: action.payload };
       case 'SET_CURRENT_PAGE':
         return { ...state, currentPage: action.payload };
       case 'SET_TOTAL_PAGES':
@@ -46,11 +46,11 @@
   }
   
   // Provider component
-  export function PeopleContextProvider({ children }: { children: React.ReactNode }) {
-    const [state, dispatch] = useReducer(PeopleReducer, initialState);
+  export function PlanetsContextProvider({ children }: { children: React.ReactNode }) {
+    const [state, dispatch] = useReducer(StarshipReducer, initialState);
   
     // Actions
-    const fetchCharacters = useCallback(async (page?: number, search?: string) => {
+    const fetchPlanets = useCallback(async (page?: number, search?: string) => {
       dispatch({ type: 'SET_LOADING', payload: true });
       dispatch({ type: 'SET_ERROR', payload: null });
   
@@ -58,9 +58,9 @@
         const currentPage = page ?? state.currentPage;
         const currentSearch = search ?? state.searchQuery;
   
-        const response = await getPeopleList(currentSearch, currentPage);
+        const response = await getPlanetsList(currentSearch, currentPage);
         
-        dispatch({ type: 'SET_CHARACTERS', payload: response.results });
+        dispatch({ type: 'SET_PLANETS', payload: response.results });
         dispatch({ type: 'SET_TOTAL_PAGES', payload: Math.ceil(response.count / 10) });
       } catch (error) {
         dispatch({ 
@@ -80,8 +80,8 @@
       dispatch({ type: 'SET_CURRENT_PAGE', payload: page });
     }, []);
   
-    const setSelectedCharacter = useCallback((character: Character | null) => {
-      dispatch({ type: 'SET_SELECTED_CHARACTER', payload: character });
+    const setSelectedPlanet = useCallback((planet: Planet | null) => {
+      dispatch({ type: 'SET_SELECTED_PLANET', payload: planet });
     }, []);
   
     const toggleModal = useCallback((isOpen: boolean) => {
@@ -92,20 +92,20 @@
       dispatch({ type: 'SET_ERROR', payload: null });
     }, []);
   
-    const value: StarWarsContextValue = {
+    const value: PlanetContextValue = {
       ...state,
-      fetchCharacters,
+      fetchPlanets,
       setSearchQuery,
       setCurrentPage,
-      setSelectedCharacter,
+      setSelectedPlanet,
       toggleModal,
       clearError,
     };
   
     return (
-      <PeopleContext.Provider value={value}>
+      <PlanetContext.Provider value={value}>
         {children}
-      </PeopleContext.Provider>
+      </PlanetContext.Provider>
     );
   }
   

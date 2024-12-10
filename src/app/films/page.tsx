@@ -9,6 +9,7 @@ import ModalComponent from "@/ui/components/common/ModalComponent"
 import SearchInput from "@/ui/components/common/SearchInput"
 import { useFilmsHook } from "@/hooks/films/useFilmsHook"
 import TitleOfPage from "@/ui/components/common/pages/TitleOfPage"
+import { formatDateIsoTime } from "@/functions/DateHelpers"
 
 export default function Home() {
   const {
@@ -38,6 +39,8 @@ export default function Home() {
     {
       key: 'created',
       label: 'Created',
+      render: (row: Film) => formatDateIsoTime(row.created).fullFormat
+
     },
     {
       key: 'actions',
@@ -104,11 +107,11 @@ export default function Home() {
           />
         </div>
 
-        <ModalComponent
+        {/* <ModalComponent
           isOpen={isModalOpen}
           onClose={() => toggleModal(false)}
           character={selectedFilm}
-        />
+        /> */}
       </div>
     </DashboardLayout>
   );
