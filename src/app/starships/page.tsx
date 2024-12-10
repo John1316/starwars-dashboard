@@ -7,53 +7,60 @@ import TableLayout from "@/ui/components/common/Table/TableLayout"
 import { debounce } from "lodash"
 import ModalComponent from "@/ui/components/common/ModalComponent"
 import SearchInput from "@/ui/components/common/SearchInput"
-import { usePeopleHook } from "@/hooks/people/usePeopleHook"
 import TitleOfPage from "@/ui/components/common/pages/TitleOfPage"
-import CharacterModal from "@/ui/components/features/Modal/people/PeopleModal"
+import { useStarshipsHook } from "@/hooks/starships/useStarshipHook"
 import { formatDateIsoTime } from "@/functions/DateHelpers"
 
 export default function Home() {
   const {
-    characters,
+    starships,
     currentPage,
-    totalPages,
-    // searchQuery,
-    isLoading,
     error,
-    isModalOpen,
-    selectedCharacter,
-    fetchCharacters,
-    setSearchQuery,
+    isLoading,
+    totalPages, 
+    fetchStarships,
+    setSelectedStarship,
+    searchQuery,
+    clearError,
     setCurrentPage,
-    setSelectedCharacter,
     toggleModal,
-  } = usePeopleHook();
+} = useStarshipsHook();
 
   const columns = [
     {
       key: 'name',
-      label: 'Name',
+      label: 'name',
       sortable: false,
     },
     {
-      key: 'gender',
-      label: 'Gender',
+      key: 'passengers',
+      label: 'Passengers',
     },
     {
-      key: 'birth_year',
-      label: 'Birth year',
+      key: 'cost_in_credits',
+      label: 'Cost in credits',
     },
     {
-      key: 'skin_color',
-      label: 'Skin Color',
+      key: 'starship_class',
+      label: 'Starship class',
     },
     {
-      key: 'eye_color',
-      label: 'Eye Color',
-    },{
+      key: 'length',
+      label: 'Length',
+    },
+    {
+      key: 'manufacturer',
+      label: 'Manufacturer',
+    },
+    // {
+    //   key: 'crew',
+    //   label: 'Crew',
+    // },
+    {
       key: 'created',
       label: 'Created',
       render: (row: Planet) => formatDateIsoTime(row.created).fullFormat
+
     },
     {
       key: 'actions',
@@ -62,7 +69,7 @@ export default function Home() {
       render: (row: any) => (
         <button
           onClick={() => handleView(row)}
-          className="px-4 py-2 rounded-lg bg-[var(--lightsaber-blue)] text-[var(--star-white)] hover:bg-[var(--rebel-yellow)] transition-colors"
+          className="px-4 py-2 truncate rounded-lg bg-[var(--lightsaber-blue)] text-[var(--star-white)] hover:bg-[var(--rebel-yellow)] transition-colors"
         >
           View Details
         </button>
@@ -71,27 +78,23 @@ export default function Home() {
   ];
 
   function handleView(character: any) {
-    setSelectedCharacter(character);
+    setSelectedStarship(character);
     toggleModal(true);
   }
 
   // Debounced search handler
   const debouncedSearch = debounce((value: string) => {
-    setSearchQuery(value);
     setCurrentPage(1);
-    fetchCharacters(1, value);
+    fetchStarships(1, value);
   }, 500);
 
   useEffect(() => {
-    console.log("🚀 ~Before Home ~ currentPage:", currentPage)
-    fetchCharacters();
-    console.log("🚀 ~After Home ~ currentPage:", currentPage)
+    fetchStarships();
   }, [currentPage]);
 
   useEffect(() => {
     return () => {
       debouncedSearch.cancel();
-      fetchCharacters(1, '')
     };
   }, []);
 
@@ -103,21 +106,19 @@ export default function Home() {
             {error}
           </div>
         )}
-
-        <TitleOfPage title="Star Wars Characters">
+        <TitleOfPage title="Star Wars Starships">
           <SearchInput
-            // value={searchQuery}
             onChange={debouncedSearch}
-            placeholder="Search for Characters..."
+            placeholder="Search for Starships..."
           />
         </TitleOfPage>
-        
+
         <TableLayout
           columns={columns}
-          data={characters}
+          data={starships}
           isLoading={isLoading}
         />
-        
+
         <div className="flex justify-center">
           <Pagination
             currentPage={currentPage}
@@ -126,14 +127,11 @@ export default function Home() {
           />
         </div>
 
-        <ModalComponent
+        {/* <ModalComponent
           isOpen={isModalOpen}
           onClose={() => toggleModal(false)}
-          name={selectedCharacter?.name}
-          // character={selectedCharacter}
-        >
-          <CharacterModal character={selectedCharacter} />
-        </ModalComponent>
+          character={selectedFilm}
+        /> */}
       </div>
     </DashboardLayout>
   );

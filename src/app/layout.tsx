@@ -5,6 +5,8 @@ import '../styles/style.scss'
 import { useEffect } from 'react';
 import { PeopleContextProvider } from '@/context/PeopleContext';
 import { FilmContextProvider } from '@/context/FilmsContext';
+import { StarshipsContextProvider } from '@/context/StarshipsContext';
+import ContextWrappers from '@/context/ContextWrappers';
 
 
 
@@ -59,13 +61,11 @@ return (
       <title>Valify</title>
     </head>
     <body>
-      <PeopleContextProvider>
-        <FilmContextProvider>
-          <NextUIProvider>
-            {children}
-          </NextUIProvider>
-        </FilmContextProvider>
-      </PeopleContextProvider>
+      <ContextWrappers>
+        <NextUIProvider>
+          {children}
+        </NextUIProvider>
+      </ContextWrappers>
     </body>
   </html>
 )
