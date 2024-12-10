@@ -5,7 +5,6 @@ import { Input } from '@nextui-org/react';
 
 
 export default function SearchInput({
-    value,
     onChange,
     placeholder = "Search by name...",
     className = "",
@@ -14,7 +13,7 @@ export default function SearchInput({
         <div className="relative">
             <Input
                 type="text"
-                value={value}
+                // value={value}
                 onChange={(e) => onChange(e.target.value)}
                 className={`
                     w-full

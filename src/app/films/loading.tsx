@@ -1,4 +1,3 @@
-"use client"
 import LoadingScreen from '@/ui/components/common/LoadingScreen'
 import React from 'react'
 

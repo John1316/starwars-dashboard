@@ -4,7 +4,10 @@ type ChildrenProps = {
 
 type DashboardLayoutProps = {
   children: React.ReactNode;
-  name: string;
 };
 
+type TitleOfPageProps = {
+  title: string,
+  children: React.ReactNode;
+};
 

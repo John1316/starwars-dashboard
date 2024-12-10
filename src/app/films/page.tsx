@@ -7,47 +7,37 @@ import TableLayout from "@/ui/components/common/Table/TableLayout"
 import { debounce } from "lodash"
 import ModalComponent from "@/ui/components/common/ModalComponent"
 import SearchInput from "@/ui/components/common/SearchInput"
-import { usePeopleHook } from "@/hooks/people/usePeopleHook"
+import { useFilmsHook } from "@/hooks/films/useFilmsHook"
 import TitleOfPage from "@/ui/components/common/pages/TitleOfPage"
 
 export default function Home() {
   const {
-    characters,
+    films,
     currentPage,
     totalPages,
-    // searchQuery,
     isLoading,
     error,
     isModalOpen,
-    selectedCharacter,
-    fetchCharacters,
-    setSearchQuery,
+    selectedFilm,
+    fetchFilms,
     setCurrentPage,
-    setSelectedCharacter,
+    setSelectedFilm,
     toggleModal,
-  } = usePeopleHook();
+  } = useFilmsHook();
 
   const columns = [
     {
-      key: 'name',
-      label: 'Name',
+      key: 'title',
+      label: 'Title',
       sortable: false,
     },
     {
-      key: 'gender',
-      label: 'Gender',
+      key: 'director',
+      label: 'Director',
     },
     {
-      key: 'birth_year',
-      label: 'Birth year',
-    },
-    {
-      key: 'skin_color',
-      label: 'Skin Color',
-    },
-    {
-      key: 'eye_color',
-      label: 'Eye Color',
+      key: 'created',
+      label: 'Created',
     },
     {
       key: 'actions',
@@ -65,19 +55,18 @@ export default function Home() {
   ];
 
   function handleView(character: any) {
-    setSelectedCharacter(character);
+    setSelectedFilm(character);
     toggleModal(true);
   }
 
   // Debounced search handler
   const debouncedSearch = debounce((value: string) => {
-    setSearchQuery(value);
     setCurrentPage(1);
-    fetchCharacters(1, value);
+    fetchFilms(1, value);
   }, 500);
 
   useEffect(() => {
-    fetchCharacters();
+    fetchFilms();
   }, [currentPage]);
 
   useEffect(() => {
@@ -94,21 +83,19 @@ export default function Home() {
             {error}
           </div>
         )}
-
-        <TitleOfPage title="Star Wars Characters">
+        <TitleOfPage title="Star Wars Films">
           <SearchInput
-            // value={searchQuery}
             onChange={debouncedSearch}
-            placeholder="Search for Characters..."
+            placeholder="Search for films..."
           />
         </TitleOfPage>
-        
+
         <TableLayout
           columns={columns}
-          data={characters}
+          data={films}
           isLoading={isLoading}
         />
-        
+
         <div className="flex justify-center">
           <Pagination
             currentPage={currentPage}
@@ -120,7 +107,7 @@ export default function Home() {
         <ModalComponent
           isOpen={isModalOpen}
           onClose={() => toggleModal(false)}
-          character={selectedCharacter}
+          character={selectedFilm}
         />
       </div>
     </DashboardLayout>

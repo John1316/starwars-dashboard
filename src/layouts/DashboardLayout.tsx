@@ -3,12 +3,7 @@ import Sidebar from '@/ui/components/layout/Sidebar'
 import { Menu, X } from 'lucide-react';
 import React, { useState } from 'react'
 
-export default function DashboardLayout({children, name}: DashboardLayoutProps) {
-  // const globalContext = useContext(GlobalContext)
-  // const {
-  //   isMenuOpen,
-  //   handleMenuToggle
-  // } = globalContext as GlobalContextProps
+export default function DashboardLayout({children}: DashboardLayoutProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
@@ -18,7 +13,7 @@ export default function DashboardLayout({children, name}: DashboardLayoutProps) 
     <div className="layout">
     <Header>
       <button 
-        className="lg:hidden p-2"
+        className="lg:hidden   p-2"
         onClick={toggleSidebar}
       >
         <div className="">
