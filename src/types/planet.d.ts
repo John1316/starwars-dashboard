@@ -1,16 +1,24 @@
 type Planet = {
-    name: string;
-    gender: string;
-    birth_year: string;
-    skin_color: string;
-    eye_color: string;
-    [key: string]: any;
+  name: string
+  rotation_period: string
+  orbital_period: string
+  diameter: string
+  climate: string
+  gravity: string
+  terrain: string
+  surface_water: string
+  population: string
+  residents: string[]
+  films: string[]
+  created: string
+  edited: string
+  url: string
   };
   
   type PlanetContextState = {
     // Data
     planets: Planet[];
-    selectedPlanet: any | null;
+    selectedPlanet: Planet | null;
   
     // Pagination
     currentPage: number;
@@ -43,3 +51,7 @@ type Planet = {
       | { type: 'SET_LOADING'; payload: boolean }
       | { type: 'SET_ERROR'; payload: string | null }
       | { type: 'TOGGLE_MODAL'; payload: boolean };
+
+      type PlanetModalProps = {
+        planet: Planet | null
+      }

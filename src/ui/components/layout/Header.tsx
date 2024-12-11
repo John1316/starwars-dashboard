@@ -5,7 +5,7 @@ import React from 'react'
 export default function Header({children}: ChildrenProps) {
   return (
     <header className="layout__header">
-      <div className="flex items-center justify-between h-full px-6">
+      <div className="flex items-center justify-between h-full md:px-[24px] px-[12px]">
         <div className="flex items-center gap-4">
           {children}
           <div className="flex items-center gap-3">

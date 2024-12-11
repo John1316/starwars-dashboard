@@ -11,3 +11,10 @@ type TitleOfPageProps = {
   children: React.ReactNode;
 };
 
+type StarWarsDataState = {
+  [key: string]: {
+      data: string[];
+      isLoading: boolean;
+      error?: string;
+  };
+}

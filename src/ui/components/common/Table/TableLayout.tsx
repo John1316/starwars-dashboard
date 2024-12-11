@@ -29,7 +29,7 @@ export default function TableLayout({
                                         }`}
                                     onClick={() => column.sortable && onSort && onSort(column.key)}
                                 >
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex capitalize items-center gap-2">
                                         {column.label}
                                         {column.sortable && (
                                             <span className="text-[var(--lightsaber-blue)]">
@@ -68,7 +68,7 @@ export default function TableLayout({
                                     {columns.map((column: TableLayoutColumn) => (
                                         <td
                                             key={column.key}
-                                            className="px-6 py-4 text-sm"
+                                            className="px-6 py-4 text-sm truncate"
                                         >
                                             {column.render ? column.render(row) : row[column.key]}
                                         </td>
