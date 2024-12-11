@@ -3,9 +3,8 @@
 // styles/layout.scss
 .layout {
   @apply h-screen w-full  font-['Star_Jedi'];
-  background-image: url("/stars-bg.svg");
   background-repeat: repeat;
-
+  background-color: var(--imperial-black);
   &__header {
     @apply fixed top-0 w-full z-50;
     height: 70px;
@@ -14,17 +13,18 @@
     //   var(--space-gray) 0%,
     //   var(--imperial-black) 100%
     // );
-    border-bottom: 2px solid var(--lightsaber-blue);
+    border-bottom: 2px solid var(--rebel-yellow);
     box-shadow: 0 0 15px rgba(0, 129, 220, 0.3);
   }
 
   &__sidebar {
-    @apply fixed left-0 top-[70px] h-[calc(100vh-70px)] bg-white overflow-y-auto transition-all duration-300 ease-in-out z-40;
+    @apply fixed left-0 top-[70px] h-[calc(100vh-70px)]  overflow-y-auto transition-all duration-300 ease-in-out z-40;
     width: 280px;
-    border-right: 2px solid var(--lightsaber-blue);
+    background-color: var(--imperial-black);
+    border-right: 2px solid var(--rebel-yellow);
     box-shadow: inset -5px 0 15px rgba(0, 129, 220, 0.2);
     &--text{
-        color: var(--lightsaber-blue);
+        color: var(--rebel-yellow);
     }
     &::-webkit-scrollbar {
       width: 8px;
@@ -35,7 +35,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--lightsaber-blue);
+      background: var(--rebel-yellow);
       border-radius: 4px;
     }
 
@@ -68,7 +68,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: var(--lightsaber-blue);
+      background: var(--rebel-yellow);
       border-radius: 4px;
     }
 
@@ -85,7 +85,7 @@
       var(--space-gray) 0%,
       var(--imperial-black) 100%
     );
-    border-top: 2px solid var(--lightsaber-blue);
+    border-top: 2px solid var(--rebel-yellow);
     box-shadow: 0 0 15px rgba(0, 129, 220, 0.3);
   }
 

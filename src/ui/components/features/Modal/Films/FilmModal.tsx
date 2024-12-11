@@ -56,12 +56,12 @@ export default function FilmModal({
             {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {filmStats.map((stat, index) => (
-                    <Card key={index} className="border-[var(--lightsaber-blue)] border">
+                    <Card key={index} className="border-[var(--rebel-yellow)] border">
                         <CardBody className="flex flex-row items-center gap-3">
                             {stat.icon}
                             <div>
                                 <p className="text-sm">{stat.label}</p>
-                                <p className="text-[var(--lightsaber-blue)] font-semibold">
+                                <p className="text-[var(--rebel-yellow)] font-semibold">
                                     {stat.value}
                                 </p>
                             </div>
@@ -87,16 +87,16 @@ export default function FilmModal({
                         }
                         if (data.length) {
                             return <div>
-                                <h3 className="text-xl font-semibold text-[var(--lightsaber-blue)] mb-2">
+                                <h3 className="text-xl font-semibold text-[var(--rebel-yellow)] mb-2">
                                     {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
                                     {data.map((name, index) => (
                                         <div
                                             key={index}
-                                            className="p-2 rounded border border-[var(--lightsaber-blue)]"
+                                            className="p-2 rounded border border-[var(--rebel-yellow)]"
                                         >
-                                            <p className="text-[var(--lightsaber-blue)]">{name}</p>
+                                            <p className="text-[var(--rebel-yellow)]">{name}</p>
                                         </div>
                                     ))}
                                 </div>

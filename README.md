@@ -49,14 +49,15 @@ npm  run build
 ```
 
 ### Steps to Run project with .env 
-6. **VITE_URL_API**:
+6. **NEXT_PUBLIC_API_URL**:
 ```
-VITE_URL_API=https://9eade449-de5f-4d79-8a18-7a08941349f6.mock.pstmn.io
+NEXT_PUBLIC_API_URL=https://swapi.dev
 ```
 ## Table of uses technologies
 - [React](https://react.dev) - A JavaScript library for building user interfaces
-- [Swiper](https://swiperjs.com) - A modern slider component
 - [NextUI](https://nextui.org) - A React component library for styling
+- [JEST](https://jestjs.io) - A Javascript library for unit testing
+- [lucide-react](https://lucide.dev/guide/packages/lucide-react) - A React component library for icons
 - [TypeScript]() (if applicable) - Strongly typed programming language that builds on JavaScript
 - [CSS/SCSS-Modules](https://en.bem.info/methodology) - Styling approach for scoped styles - BEM strategy
 - [Tailwind](https://tailwindcss.com) - Tailwind css framework

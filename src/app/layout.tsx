@@ -58,7 +58,9 @@ export default function RootLayout({
 return (
   <html lang="en">
     <head>
-      <title>Valify</title>
+      <title>Star wars</title>
+      <link rel="icon" type="image/x-icon" href="/logo.png" />
+    <meta name="description" content="Star wars dashboard" />
     </head>
     <body>
       <ContextWrappers>

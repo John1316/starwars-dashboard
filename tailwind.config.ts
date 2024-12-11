@@ -15,7 +15,7 @@ const config: Config = {
         colors: {
           'imperial-black': 'var(--imperial-black)',
           'space-gray': 'var(--space-gray)',
-          'lightsaber-blue': 'var(--lightsaber-blue)',
+          'lightsaber-blue': 'var(--rebel-yellow)',
           'rebel-yellow': 'var(--rebel-yellow)',
           'sith-red': 'var(--sith-red)',
           'star-white': 'var(--star-white)',

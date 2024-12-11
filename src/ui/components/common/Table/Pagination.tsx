@@ -13,7 +13,7 @@ export default function Pagination({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="flex items-center justify-center md:px-3 md:py-2 px-1.5 py-1 rounded-lg border-2 border-[var(--lightsaber-blue)] text-[var(--lightsaber-blue)] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[var(--hologram-blue)] transition-colors"
+        className="flex items-center justify-center md:px-3 md:py-2 px-1.5 py-1 rounded-lg border-2 border-[var(--rebel-yellow)] text-[var(--rebel-yellow)] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[var(--hologram-blue)] transition-colors"
       >
         <ChevronLeft size={16} />
       </button>
@@ -23,9 +23,9 @@ export default function Pagination({
           <button
             key={page}
             onClick={() => onPageChange(page)}
-            className={`flex items-center justify-center md:px-3 md:py-2 px-1.5 py-1 rounded-lg border-2 border-[var(--lightsaber-blue)]  transition-colors ${
+            className={`flex items-center justify-center md:px-3 md:py-2 px-1.5 py-1 rounded-lg border-2 border-[var(--rebel-yellow)]  transition-colors ${
               currentPage === page
-                ? 'bg-[var(--lightsaber-blue)] text-white'
+                ? 'bg-[var(--rebel-yellow)] text-white'
                 : 'text-lightsaber-blue'
             }`}
           >
@@ -37,7 +37,7 @@ export default function Pagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="flex items-center justify-center md:px-3 md:py-2 px-1.5 py-1 rounded-lg border-2 border-[var(--lightsaber-blue)] text-[var(--lightsaber-blue)] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[var(--hologram-blue)] transition-colors"
+        className="flex items-center justify-center md:px-3 md:py-2 px-1.5 py-1 rounded-lg border-2 border-[var(--rebel-yellow)] text-[var(--rebel-yellow)] disabled:opacity-50 disabled:cursor-not-allowed hover:bg-[var(--hologram-blue)] transition-colors"
       >
         <ChevronRight size={16} />
       </button>
