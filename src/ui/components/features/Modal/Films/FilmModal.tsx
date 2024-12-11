@@ -1,92 +1,61 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
     Card,
     CardBody,
     Chip,
     Spinner
 } from "@nextui-org/react";
-import AxiosInstance from "@/api/AxiosInstance";
 import {
     Calendar,
-    Eye,
-    Palette,
-    Ruler,
-    UserCircle,
-    Weight,
+    Clapperboard,
+    User,
+    Users,
 } from "lucide-react";
 import useStarWarsArrayData from "@/hooks/Global/useStarWarsArrayData";
+import { starWarsUtils } from "@/utils/starWarsUtils";
 
-interface Character {
-    name: string;
-    height: string;
-    mass: string;
-    birth_year: string;
-    eye_color: string;
-    gender: string;
-    hair_color: string;
-    skin_color: string;
-    [key: string]: any;
-}
 
-interface CharacterDetailModalProps {
-    character: Character | null;
-}
 
-interface RelatedDataState {
-    [key: string]: {
-        data: string[];
-        isLoading: boolean;
-    };
-}
+export default function FilmModal({
+    film,
+}: FilmModalProps) {
+    const {relatedData} = useStarWarsArrayData(film)
+    const { formatSectionTitle } = starWarsUtils;
 
-export default function CharacterModal({
-    character,
-}: CharacterDetailModalProps) {
-    const {relatedData} = useStarWarsArrayData(character)
     const capitalize = (str: string) =>
         str.charAt(0).toUpperCase() + str.slice(1);
 
 
-    const characterStats = [
+    const filmStats = [
         {
-            icon: <Ruler className="text-lightsaber-blue" size={20} />,
-            label: "Height",
-            value: character?.height ? `${character.height} cm` : '',
-        },
-        {
-            icon: <Weight className="text-lightsaber-blue" size={20} />,
-            label: "Mass",
-            value: character?.mass ? `${character.mass} kg` : '',
+            icon: <Clapperboard className="text-lightsaber-blue" size={20} />,
+            label: "Episode",
+            value: film?.episode_id ? `Episode ${film.episode_id}` : '',
         },
         {
             icon: <Calendar className="text-lightsaber-blue" size={20} />,
-            label: "Birth Year",
-            value: character?.birth_year || '',
+            label: "Release Date",
+            value: film?.release_date ? new Date(film.release_date).toLocaleDateString() : '',
         },
         {
-            icon: <Eye className="text-lightsaber-blue" size={20} />,
-            label: "Eye Color",
-            value: character?.eye_color ? capitalize(character.eye_color) : '',
+            icon: <User className="text-lightsaber-blue" size={20} />,
+            label: "Director",
+            value: film?.director || '',
         },
         {
-            icon: <UserCircle className="text-lightsaber-blue" size={20} />,
-            label: "Gender",
-            value: character?.gender ? capitalize(character.gender) : '',
-        },
-        {
-            icon: <Palette className="text-lightsaber-blue" size={20} />,
-            label: "Hair Color",
-            value: character?.hair_color ? capitalize(character.hair_color) : '',
+            icon: <Users className="text-lightsaber-blue" size={20} />,
+            label: "Producers",
+            value: film?.producer || '',
         },
     ];
 
-    if (!character) return null;
+    if (!film) return null;
 
     return (
         <div className="space-y-6">
             {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {characterStats.map((stat, index) => (
+                {filmStats.map((stat, index) => (
                     <Card key={index} className="border-[var(--lightsaber-blue)] border">
                         <CardBody className="flex flex-row items-center gap-3">
                             {stat.icon}
@@ -101,20 +70,9 @@ export default function CharacterModal({
                 ))}
             </div>
 
-            <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Physical Traits</h3>
-                <div className="flex flex-wrap gap-2">
-                    <Chip color="primary" variant="bordered">
-                        Skin Color: {capitalize(character.skin_color)}
-                    </Chip>
-                    <Chip color="primary" variant="bordered">
-                        Hair Color: {capitalize(character.hair_color)}
-                    </Chip>
-                </div>
-            </div>
 
             {/* Dynamic Related Data Sections */}
-            {Object.entries(relatedData).map(([key, { data, isLoading }]) => (
+            {Object.entries(relatedData).map(([key, { data, isLoading, error }]) => (
                 <div key={key}>
                     {(() => {
                         if (isLoading) {
@@ -122,10 +80,15 @@ export default function CharacterModal({
                                 <Spinner color="primary" />
                             </div>
                         }
+                        if(error){
+                            return <div className="bg-red-500 text-white  p-2">
+                            {error}
+                        </div>
+                        }
                         if (data.length) {
                             return <div>
                                 <h3 className="text-xl font-semibold text-[var(--lightsaber-blue)] mb-2">
-                                    {capitalize(key.replace(/_/g, ' '))}:
+                                    {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
                                     {data.map((name, index) => (

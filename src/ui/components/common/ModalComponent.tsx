@@ -10,7 +10,7 @@ import {
   CardBody,
   Chip
 } from "@nextui-org/react";
-import { UserCircle, Ruler, Weight, Calendar, Palette, Eye } from 'lucide-react';
+import { UserCircle, Ruler, Weight, Calendar, Palette, Eye, X } from 'lucide-react';
 
 interface ModalComponent {
   isOpen: boolean;
@@ -84,8 +84,9 @@ export default function ModalComponent({
         base: "border-[var(--lightsaber-blue)]",
         header: "border-b-[1px] border-[var(--lightsaber-blue)]",
         body: "py-6 max-h-[80vh] overflow-auto",
-        closeButton: "hover:bg-white/5 active:bg-white/10",
+        closeButton: "hover:bg-white/5 active:bg-white/10 top-[16px]",
       }}
+      closeButton={<X height={35} width={35} />}
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">

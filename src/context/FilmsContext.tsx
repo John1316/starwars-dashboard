@@ -24,11 +24,11 @@
   };
   
   // Reducer
-  function FilmReducer(state: FilmContextState, action: ActionType): FilmContextState {
+  function FilmReducer(state: FilmContextState, action: ActionTypeFilms): FilmContextState {
     switch (action.type) {
-      case 'SET_CHARACTERS':
+      case 'SET_FILMS':
         return { ...state, films: action.payload };
-      case 'SET_SELECTED_CHARACTER':
+      case 'SET_SELECTED_FILMS':
         return { ...state, selectedFilm: action.payload };
       case 'SET_CURRENT_PAGE':
         return { ...state, currentPage: action.payload };
@@ -62,7 +62,7 @@
   
         const response = await getFilmsList(currentSearch, currentPage);
         
-        dispatch({ type: 'SET_CHARACTERS', payload: response.results });
+        dispatch({ type: 'SET_FILMS', payload: response.results });
         dispatch({ type: 'SET_TOTAL_PAGES', payload: Math.ceil(response.count / 10) });
       } catch (error) {
         dispatch({ 
@@ -82,8 +82,8 @@
       dispatch({ type: 'SET_CURRENT_PAGE', payload: page });
     }, []);
   
-    const setSelectedFilm = useCallback((character: Character | null) => {
-      dispatch({ type: 'SET_SELECTED_CHARACTER', payload: character });
+    const setSelectedFilm = useCallback((film: Film | null) => {
+      dispatch({ type: 'SET_SELECTED_FILMS', payload: film });
     }, []);
   
     const toggleModal = useCallback((isOpen: boolean) => {

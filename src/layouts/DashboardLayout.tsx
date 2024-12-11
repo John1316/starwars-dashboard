@@ -13,7 +13,7 @@ export default function DashboardLayout({children}: DashboardLayoutProps) {
     <div className="layout">
     <Header>
       <button 
-        className="lg:hidden   p-2"
+        className="lg:hidden"
         onClick={toggleSidebar}
       >
         <div className="">

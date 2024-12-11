@@ -10,6 +10,7 @@ import SearchInput from "@/ui/components/common/SearchInput"
 import TitleOfPage from "@/ui/components/common/pages/TitleOfPage"
 import { useStarshipsHook } from "@/hooks/starships/useStarshipHook"
 import { formatDateIsoTime } from "@/functions/DateHelpers"
+import StarshipModal from "@/ui/components/features/Modal/Starships/StarshipsModal"
 
 export default function Home() {
   const {
@@ -20,8 +21,8 @@ export default function Home() {
     totalPages, 
     fetchStarships,
     setSelectedStarship,
-    searchQuery,
-    clearError,
+    selectedStarship,
+    isModalOpen,
     setCurrentPage,
     toggleModal,
 } = useStarshipsHook();
@@ -127,11 +128,15 @@ export default function Home() {
           />
         </div>
 
-        {/* <ModalComponent
+        <ModalComponent
           isOpen={isModalOpen}
           onClose={() => toggleModal(false)}
-          character={selectedFilm}
-        /> */}
+          name={selectedStarship?.name || ""}
+        >
+          <StarshipModal
+            starship={selectedStarship}
+          />
+        </ModalComponent>
       </div>
     </DashboardLayout>
   );

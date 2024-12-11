@@ -92,7 +92,6 @@
 
   &__overlay {
     @apply fixed inset-0 z-30 hidden;
-    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(4px);
 
     @media (max-width: 768px) {

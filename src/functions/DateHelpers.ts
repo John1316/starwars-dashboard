@@ -21,6 +21,12 @@ const formatDateIsoTime = (isoString: string) => {
       fullFormat: `${dateFormatted} ${timeFormatted}`
     };
   };
+      // Format large numbers with commas
+      const formatNumber = (num: string) => {
+        return num === "unknown" ? "Unknown" : 
+            parseInt(num).toLocaleString();
+    };
   export {
-    formatDateIsoTime
+    formatDateIsoTime,
+    formatNumber
   }

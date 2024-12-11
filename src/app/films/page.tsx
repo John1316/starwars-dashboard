@@ -10,6 +10,7 @@ import SearchInput from "@/ui/components/common/SearchInput"
 import { useFilmsHook } from "@/hooks/films/useFilmsHook"
 import TitleOfPage from "@/ui/components/common/pages/TitleOfPage"
 import { formatDateIsoTime } from "@/functions/DateHelpers"
+import FilmModal from "@/ui/components/features/Modal/Films/FilmModal"
 
 export default function Home() {
   const {
@@ -107,11 +108,15 @@ export default function Home() {
           />
         </div>
 
-        {/* <ModalComponent
+        <ModalComponent
           isOpen={isModalOpen}
           onClose={() => toggleModal(false)}
-          character={selectedFilm}
-        /> */}
+          name={selectedFilm?.title}
+        >
+          <FilmModal
+            film={selectedFilm || null}
+          />
+        </ModalComponent>
       </div>
     </DashboardLayout>
   );

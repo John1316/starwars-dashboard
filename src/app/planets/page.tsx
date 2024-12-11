@@ -9,6 +9,8 @@ import SearchInput from "@/ui/components/common/SearchInput"
 import TitleOfPage from "@/ui/components/common/pages/TitleOfPage"
 import usePlanetHook from "@/hooks/planet/usePlanetHook"
 import { formatDateIsoTime } from "@/functions/DateHelpers"
+import ModalComponent from "@/ui/components/common/ModalComponent"
+import PlanetModal from "@/ui/components/features/Modal/Planet/PlanetModal"
 
 export default function Home() {
   const {
@@ -19,7 +21,8 @@ export default function Home() {
     totalPages, 
     fetchPlanets,
     setSelectedPlanet,
-    searchQuery,
+    selectedPlanet,
+    isModalOpen,
     clearError,
     setCurrentPage,
     toggleModal,
@@ -121,11 +124,15 @@ export default function Home() {
           />
         </div>
 
-        {/* <ModalComponent
+        <ModalComponent
           isOpen={isModalOpen}
           onClose={() => toggleModal(false)}
-          character={selectedFilm}
-        /> */}
+          name={selectedPlanet?.name || ""}
+        >
+          <PlanetModal 
+          planet={selectedPlanet}
+          />
+        </ModalComponent>
       </div>
     </DashboardLayout>
   );
