@@ -9,11 +9,6 @@ jest.mock('lucide-react', () => ({
   ChevronsUpDown: () => <div data-testid="chevrons-updown">↕</div>,
 }))
 
-// Mock the LoadingScreen component
-// jest.mock('@/ui/components/common/LoadingScreen.tsx', () => ({
-//   __esModule: true,
-//   default: () => <div data-testid="loading-screen">Loading...</div>
-// }))
 
 describe('TableLayout Component', () => {
   // Test data setup
