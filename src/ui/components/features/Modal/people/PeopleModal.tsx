@@ -141,6 +141,7 @@ export default function CharacterModal({
                         }
                         return ""
                     })()}
+                    
                 </div>
             ))}
         </div>

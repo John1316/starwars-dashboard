@@ -9,7 +9,7 @@ import ModalComponent from "@/ui/components/common/ModalComponent"
 import SearchInput from "@/ui/components/common/SearchInput"
 import { usePeopleHook } from "@/hooks/people/usePeopleHook"
 import TitleOfPage from "@/ui/components/common/pages/TitleOfPage"
-import CharacterModal from "@/ui/components/features/Modal/People/PeopleModal"
+import CharacterModal from "@/ui/components/features/Modal/people/PeopleModal"
 import { formatDateIsoTime } from "@/functions/DateHelpers"
 
 export default function Home() {
