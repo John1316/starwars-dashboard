@@ -54,13 +54,13 @@ export default function FilmModal({
     return (
         <div className="space-y-6">
             {/* Basic Info */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {filmStats.map((stat, index) => (
-                    <Card key={index} className="border-[var(--rebel-yellow)] border">
+                    <Card key={index} className="bg-[var(--space-gray)] border-[var(--rebel-yellow)] border">
                         <CardBody className="flex flex-row items-center gap-3">
                             {stat.icon}
                             <div>
-                                <p className="text-sm">{stat.label}</p>
+                                <p className="text-sm text-white">{stat.label}</p>
                                 <p className="text-[var(--rebel-yellow)] font-semibold">
                                     {stat.value}
                                 </p>
@@ -87,7 +87,7 @@ export default function FilmModal({
                         }
                         if (data.length) {
                             return <div>
-                                <h3 className="text-xl font-semibold text-[var(--rebel-yellow)] mb-2">
+                                <h3 className="text-xl font-semibold text-white mb-2">
                                     {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">

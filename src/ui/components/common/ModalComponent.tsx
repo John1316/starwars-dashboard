@@ -82,15 +82,15 @@ export default function ModalComponent({
       classNames={{
         backdrop: "bg-[#000000]/50 backdrop-opacity-40",
         base: "border-[var(--rebel-yellow)]",
-        header: "border-b-[1px] border-[var(--rebel-yellow)]",
-        body: "py-6 max-h-[80vh] overflow-auto",
+        header: "border-b-[1px]  bg-[var(--space-gray)] border-[var(--rebel-yellow)]",
+        body: "py-6 max-h-[80vh] overflow-auto bg-[var(--space-gray)]",
         closeButton: "hover:bg-white/5 active:bg-white/10 top-[16px]",
       }}
-      closeButton={<X height={35} width={35} />}
+      closeButton={<X className='text-white' height={35} width={35} />}
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">
-          <h2 className="text-2xl font-bold">{name || ""}</h2>
+          <h2 className="text-2xl font-bold text-white">{name || ""}</h2>
         </ModalHeader>
         <ModalBody>
           {/* <div className="space-y-6">
