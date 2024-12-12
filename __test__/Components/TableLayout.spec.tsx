@@ -125,7 +125,7 @@ describe('TableLayout Component', () => {
       const rows = screen.getAllByRole('row')
       // Skip header row
       rows.slice(1).forEach(row => {
-        expect(row).toHaveClass('hover:bg-[var(--hologram-blue)]')
+        expect(row).toHaveClass('hover:bg-[var(--rebel-yellow-overlay)]')
       })
     })
 
@@ -133,7 +133,7 @@ describe('TableLayout Component', () => {
       render(<TableLayout {...defaultProps} />)
       const table = screen.getByRole('table').parentElement
       expect(table).toHaveClass('border-2')
-      expect(table).toHaveClass('border-[var(--lightsaber-blue)]')
+      expect(table).toHaveClass('border-[var(--rebel-yellow)]')
     })
 
     it('applies correct header styles', () => {

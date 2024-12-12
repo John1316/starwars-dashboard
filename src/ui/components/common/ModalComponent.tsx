@@ -81,16 +81,16 @@ export default function ModalComponent({
       size="2xl"
       classNames={{
         backdrop: "bg-[#000000]/50 backdrop-opacity-40",
-        base: "border-[var(--lightsaber-blue)]",
-        header: "border-b-[1px] border-[var(--lightsaber-blue)]",
-        body: "py-6 max-h-[80vh] overflow-auto",
+        base: "border-[var(--rebel-yellow)]",
+        header: "border-b-[1px]  bg-[var(--space-gray)] border-[var(--rebel-yellow)]",
+        body: "py-6 max-h-[80vh] overflow-auto bg-[var(--space-gray)]",
         closeButton: "hover:bg-white/5 active:bg-white/10 top-[16px]",
       }}
-      closeButton={<X height={35} width={35} />}
+      closeButton={<X className='text-white' height={35} width={35} />}
     >
       <ModalContent>
         <ModalHeader className="flex flex-col gap-1">
-          <h2 className="text-2xl font-bold">{name || ""}</h2>
+          <h2 className="text-2xl font-bold text-white">{name || ""}</h2>
         </ModalHeader>
         <ModalBody>
           {/* <div className="space-y-6">
@@ -98,13 +98,13 @@ export default function ModalComponent({
               {characterStats.map((stat, index) => (
                 <Card 
                   key={index}
-                  className="border-[var(--lightsaber-blue)] border"
+                  className="border-[var(--rebel-yellow)] border"
                 >
                   <CardBody className="flex flex-row items-center gap-3">
                     {stat.icon}
                     <div>
                       <p className="text-sm">{stat.label}</p>
-                      <p className="text-[var(--lightsaber-blue)] font-semibold">
+                      <p className="text-[var(--rebel-yellow)] font-semibold">
                         {stat.value}
                       </p>
                     </div>

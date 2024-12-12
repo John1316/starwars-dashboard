@@ -15,17 +15,18 @@ export default function SearchInput({
                 type="text"
                 // value={value}
                 onChange={(e) => onChange(e.target.value)}
+                radius='md'
+                classNames={{
+                    inputWrapper: 'border-2 border-[var(--rebel-yellow)]'
+                }}
                 className={`
                     w-full
-                    border-2 
-                    border-[var(--lightsaber-blue)]
-                    rounded-lg
                     
                     placeholder-gray-400
                     transition-all
                     ${className}
                 `}
-                startContent={<Search className=" text-[var(--lightsaber-blue)]" />}
+                startContent={<Search className=" text-[var(--rebel-yellow)]" />}
                 placeholder={placeholder}
             />
         </div>

@@ -23,12 +23,12 @@ export default function Sidebar({ isOpen }: { isOpen: boolean }) {
                 className={`flex items-center gap-3 p-3 rounded-lg transition-colors group
                   ${
                     isActive(item.href)
-                      ? "bg-[var(--hologram-blue)]"
-                      : "hover:bg-[var(--hologram-blue)]"
+                      ? "border-1 border-[var(--rebel-yellow)] bg-[var(--rebel-yellow-overlay)]"
+                      : "hover:bg-[var(--rebel-yellow-overlay)]"
                   }`}
               >
                 {item.icon}
-                <span className="layout__sidebar--text group-hover:text-[var(--lightsaber-blue)]">
+                <span className={`layout__sidebar--text group-hover:text-[var(--rebel-yellow)]`}>
                   {item.label}
                 </span>
               </Link>

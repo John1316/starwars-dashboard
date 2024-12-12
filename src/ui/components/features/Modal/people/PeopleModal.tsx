@@ -87,12 +87,12 @@ export default function CharacterModal({
             {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {characterStats.map((stat, index) => (
-                    <Card key={index} className="border-[var(--lightsaber-blue)] border">
+                    <Card key={index} className="bg-[var(--space-gray)] border-[var(--rebel-yellow)] border">
                         <CardBody className="flex flex-row items-center gap-3">
                             {stat.icon}
                             <div>
-                                <p className="text-sm">{stat.label}</p>
-                                <p className="text-[var(--lightsaber-blue)] font-semibold">
+                                <p className="text-sm text-white">{stat.label}</p>
+                                <p className="text-[var(--rebel-yellow)] font-semibold">
                                     {stat.value}
                                 </p>
                             </div>
@@ -102,7 +102,7 @@ export default function CharacterModal({
             </div>
 
             <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Physical Traits</h3>
+                <h3 className="text-lg font-semibold text-white">Physical Traits</h3>
                 <div className="flex flex-wrap gap-2">
                     <Chip color="primary" variant="bordered">
                         Skin Color: {capitalize(character.skin_color)}
@@ -124,16 +124,16 @@ export default function CharacterModal({
                         }
                         if (data.length) {
                             return <div>
-                                <h3 className="text-xl font-semibold text-[var(--lightsaber-blue)] mb-2">
+                                <h3 className="text-xl font-semibold text-white mb-2">
                                     {capitalize(key.replace(/_/g, ' '))}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
                                     {data.map((name, index) => (
                                         <div
                                             key={index}
-                                            className="p-2 rounded border border-[var(--lightsaber-blue)]"
+                                            className="p-2 rounded border border-[var(--rebel-yellow)]"
                                         >
-                                            <p className="text-[var(--lightsaber-blue)]">{name}</p>
+                                            <p className="text-[var(--rebel-yellow)]">{name}</p>
                                         </div>
                                     ))}
                                 </div>

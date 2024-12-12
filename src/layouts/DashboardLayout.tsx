@@ -18,8 +18,8 @@ export default function DashboardLayout({children}: DashboardLayoutProps) {
       >
         <div className="">
           {isSidebarOpen ? 
-            <X size={24} />
-            : <Menu size={24} />
+            <X className='text-white' size={24} />
+            : <Menu className='text-white' size={24} />
           }
         </div>
       </button>

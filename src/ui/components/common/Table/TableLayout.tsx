@@ -13,7 +13,7 @@ export default function TableLayout({
     emptyMessage = "No data available"
 }: TableProps) {
     return (
-        <div className="w-full h-full overflow-x-auto rounded-lg border-2 border-[var(--lightsaber-blue)]">
+        <div className="w-full h-full overflow-x-auto rounded-lg border-2 border-[var(--rebel-yellow)]">
             {(() => {
                 if (isLoading) {
                     return <LoadingScreen />
@@ -21,18 +21,18 @@ export default function TableLayout({
                 }
                 return <table className="w-full min-w-full table-auto">
                     <thead>
-                        <tr className="border-b-2 border-[var(--lightsaber-blue)]">
+                        <tr className="border-b-2 border-[var(--rebel-yellow)]">
                             {columns.map((column: TableLayoutColumn) => (
                                 <th
                                     key={column.key}
-                                    className={`px-6 py-4 text-left text-sm font-semibold ${column.sortable ? 'cursor-pointer hover:text-[var(--rebel-yellow)]' : ''
+                                    className={`px-6 py-4 text-white text-left text-sm font-semibold ${column.sortable ? 'cursor-pointer hover:text-[var(--rebel-yellow)]' : ''
                                         }`}
                                     onClick={() => column.sortable && onSort && onSort(column.key)}
                                 >
                                     <div className="flex capitalize items-center gap-2">
                                         {column.label}
                                         {column.sortable && (
-                                            <span className="text-[var(--lightsaber-blue)]">
+                                            <span className="text-[var(--rebel-yellow)]">
                                                 {sortColumn === column.key ? (
                                                     sortDirection === 'asc' ? (
                                                         <ChevronUp size={16} />
@@ -49,7 +49,7 @@ export default function TableLayout({
                             ))}
                         </tr>
                     </thead>
-                    <tbody className="divide-y divide-[var(--lightsaber-blue)]">
+                    <tbody className="divide-y divide-[var(--rebel-yellow)]">
                         {data.length === 0 ? (
                             <tr>
                                 <td
@@ -63,12 +63,12 @@ export default function TableLayout({
                             data.map((row: any, rowIndex: number) => (
                                 <tr
                                     key={rowIndex}
-                                    className="transition-colors hover:bg-[var(--hologram-blue)]"
+                                    className="transition-colors hover:bg-[var(--rebel-yellow-overlay)]"
                                 >
                                     {columns.map((column: TableLayoutColumn) => (
                                         <td
                                             key={column.key}
-                                            className="px-6 py-4 text-sm truncate"
+                                            className="px-6 py-4 text-sm truncate text-white"
                                         >
                                             {column.render ? column.render(row) : row[column.key]}
                                         </td>

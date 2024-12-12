@@ -105,18 +105,18 @@ export default function StarshipModal({
             {/* Basic Info */}
 
             <div className="space-y-2">
-                <p className="text-gray-600">Model: {starship.model}</p>
+                <p className="text-white">Model: {starship.model}</p>
             </div>
 
             {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {starshipStats.map((stat, index) => (
-                    <Card key={index} className="border-[var(--lightsaber-blue)] border">
+                    <Card key={index} className="bg-[var(--space-gray)] border-[var(--rebel-yellow)] border">
                         <CardBody className="flex flex-row items-center gap-3">
                             {stat.icon}
                             <div>
-                                <p className="text-sm">{stat.label}</p>
-                                <p className="text-[var(--lightsaber-blue)] font-semibold">
+                                <p className="text-sm text-white">{stat.label}</p>
+                                <p className="text-[var(--rebel-yellow)] font-semibold">
                                     {stat.value}
                                 </p>
                             </div>
@@ -126,16 +126,16 @@ export default function StarshipModal({
             </div>
 
             {/* Technical Specifications */}
-            <Card className="border-[var(--lightsaber-blue)] border">
+            <Card className="bg-[var(--space-gray)] border-[var(--rebel-yellow)] border">
                 <CardBody>
-                    <h3 className="text-lg font-semibold mb-4">Technical Specifications</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-white">Technical Specifications</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
                         {technicalStats.map((stat, index) => (
                             <div key={index} className="flex items-center gap-3">
                                 {stat.icon}
                                 <div>
-                                    <p className="text-sm">{stat.label}</p>
-                                    <p className="text-[var(--lightsaber-blue)] font-semibold">
+                                    <p className="text-sm text-white">{stat.label}</p>
+                                    <p className="text-[var(--rebel-yellow)] font-semibold">
                                         {stat.value}
                                     </p>
                                 </div>
@@ -146,16 +146,16 @@ export default function StarshipModal({
             </Card>
 
             {/* Capacity Information */}
-            <Card className="border-[var(--lightsaber-blue)] border">
+            <Card className="bg-[var(--space-gray)] border-[var(--rebel-yellow)] border">
                 <CardBody>
-                    <h3 className="text-lg font-semibold mb-4">Capacity Information</h3>
+                    <h3 className="text-lg font-semibold mb-4 text-white">Capacity Information</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {capacityStats.map((stat, index) => (
                             <div key={index} className="flex items-center gap-3">
                                 {stat.icon}
                                 <div>
-                                    <p className="text-sm">{stat.label}</p>
-                                    <p className="text-[var(--lightsaber-blue)] font-semibold">
+                                    <p className="text-sm text-white">{stat.label}</p>
+                                    <p className="text-[var(--rebel-yellow)] font-semibold">
                                         {stat.value}
                                     </p>
                                 </div>
@@ -181,16 +181,16 @@ export default function StarshipModal({
                         }
                         if (data.length) {
                             return <div>
-                                <h3 className="text-xl font-semibold text-[var(--lightsaber-blue)] mb-2">
+                                <h3 className="text-xl font-semibold text-white mb-2">
                                     {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
                                     {data.map((name, index) => (
                                         <div
                                             key={index}
-                                            className="p-2 rounded border border-[var(--lightsaber-blue)]"
+                                            className="p-2 rounded border border-[var(--rebel-yellow)]"
                                         >
-                                            <p className="text-[var(--lightsaber-blue)]">{name}</p>
+                                            <p className="text-[var(--rebel-yellow)]">{name}</p>
                                         </div>
                                     ))}
                                 </div>

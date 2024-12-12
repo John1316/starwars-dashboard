@@ -14,7 +14,7 @@ export default function Header({children}: ChildrenProps) {
               GALACTIC DASHBOARD
             </h1> */}
             <Image 
-            src='/logo.png' 
+            src='/logo-white.png' 
             width={100}
             radius='none'
             />
