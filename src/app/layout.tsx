@@ -60,7 +60,7 @@ return (
     <head>
       <title>Star wars</title>
       <link rel="icon" type="image/x-icon" href="/logo.png" />
-    <meta name="description" content="Star wars dashboard" />
+      <meta name="description" content="Star wars dashboard" />
     </head>
     <body>
       <ContextWrappers>
