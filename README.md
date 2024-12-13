@@ -1,4 +1,4 @@
-# Project Name
+# Star Wars Dashboard
 
 A brief description of your project, explaining what it does or its purpose.
 
