@@ -15,6 +15,10 @@ import {
     Weight,
 } from "lucide-react";
 import useStarWarsArrayData from "@/hooks/Global/useStarWarsArrayData";
+import { useRouter } from "next/navigation";
+import { starWarsUtils } from "@/utils/starWarsUtils";
+import EntityName from "../../Records/EntityName";
+import StatsCard from "../../Records/StatsCard";
 
 interface Character {
     name: string;
@@ -45,8 +49,9 @@ export default function CharacterModal({
     const {relatedData} = useStarWarsArrayData(character)
     const capitalize = (str: string) =>
         str.charAt(0).toUpperCase() + str.slice(1);
+    const { formatSectionTitle } = starWarsUtils;
 
-
+    const router = useRouter()
     const characterStats = [
         {
             icon: <Ruler className="text-lightsaber-blue" size={20} />,
@@ -87,17 +92,7 @@ export default function CharacterModal({
             {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {characterStats.map((stat, index) => (
-                    <Card key={index} className="bg-[var(--space-gray)] border-[var(--rebel-yellow)] border">
-                        <CardBody className="flex flex-row items-center gap-3">
-                            {stat.icon}
-                            <div>
-                                <p className="text-sm text-white">{stat.label}</p>
-                                <p className="text-[var(--rebel-yellow)] font-semibold">
-                                    {stat.value}
-                                </p>
-                            </div>
-                        </CardBody>
-                    </Card>
+                    <StatsCard key={index} stat={stat} />
                 ))}
             </div>
 
@@ -125,16 +120,11 @@ export default function CharacterModal({
                         if (data.length) {
                             return <div>
                                 <h3 className="text-xl font-semibold text-white mb-2">
-                                    {capitalize(key.replace(/_/g, ' '))}:
+                                    {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
-                                    {data.map((name, index) => (
-                                        <div
-                                            key={index}
-                                            className="p-2 rounded border border-[var(--rebel-yellow)]"
-                                        >
-                                            <p className="text-[var(--rebel-yellow)]">{name}</p>
-                                        </div>
+                                    {data.map((people: any) => ( 
+                                        <EntityName keyName={key} entity={people} key={people.id} />
                                     ))}
                                 </div>
                             </div>

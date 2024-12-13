@@ -1,8 +1,11 @@
 
 
 // styles/layout.scss
+* > {
+  font-family: DIN;
+}
 .layout {
-  @apply h-screen w-full  font-['Star_Jedi'];
+  @apply h-screen w-full  font-['DIN'];
   background-repeat: repeat;
   background-color: var(--imperial-black);
   &__header {

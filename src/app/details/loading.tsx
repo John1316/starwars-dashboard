@@ -8,6 +8,5 @@ export default function loading() {
       <div className="h-full w-full">
           <LoadingScreen />
       </div>
-    </DashboardLayout>
-  )
+    </DashboardLayout>  )
 }

@@ -18,3 +18,13 @@ type StarWarsDataState = {
       error?: string;
   };
 }
+type EntityProps = {
+  keyName: string,
+  entity: {name: string , id: number | string}
+}
+type ErrorPageProps = {
+  btnText?: string,
+  title?: string,
+  text1: string,
+  text2: string
+}

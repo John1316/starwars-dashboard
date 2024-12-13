@@ -1,3 +1,5 @@
+"use client"
+
 import Header from '@/ui/components/layout/Header'
 import Sidebar from '@/ui/components/layout/Sidebar'
 import { Menu, X } from 'lucide-react';
