@@ -1,8 +1,15 @@
-"use client"
-import React from 'react'
+"use client";
 
-export default function error({ error }: { error: any }) {
+import DashboardLayout from "@/layouts/DashboardLayout";
+import ErrorPage from "@/ui/components/common/Error/ErrorPage";
+import React from "react";
+
+export default function error({ error }: any) {
   return (
-    <div>{error.message}</div>
-  )
+    <DashboardLayout>
+      <div className="h-full w-full">
+        <ErrorPage text1={"Something's missing."} text2={error.message} />
+      </div>
+    </DashboardLayout>
+  );
 }

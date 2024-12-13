@@ -1,4 +1,5 @@
 import AxiosInstance from '@/api/AxiosInstance';
+import { extractSwapiId } from '@/utils/ExtractIds';
 import React, { useEffect, useState } from 'react'
 
 export default function useStarWarsArrayData(entity: any | null) {
@@ -36,7 +37,10 @@ export default function useStarWarsArrayData(entity: any | null) {
                     // Extract the main identifier (name or title) from the results
                     const names = results.map((item: any) => {
                         // Different SWAPI endpoints use different identifiers
-                        return item.name || item.title || item.model || 'Unknown';
+                        return {
+                            name: item.name || item.title || item.model || 'Unknown', 
+                            id: extractSwapiId(item.url)
+                        };
                     });
 
                     setRelatedData(prev => ({

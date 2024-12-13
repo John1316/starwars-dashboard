@@ -5,7 +5,7 @@ function getPeopleList(name: string | any = '', page?:number){
     const res = AxiosInstance(`get`, `${HTTPS_REQUESTS.people}?page=${page}&search=${name}`)
     return res
 }
-function getPeopleListDetails(id: number){
+function getPeopleListDetails(id: number | string){
     const res = AxiosInstance(`get`, `${HTTPS_REQUESTS.people}/${id}`)
     return res
 }

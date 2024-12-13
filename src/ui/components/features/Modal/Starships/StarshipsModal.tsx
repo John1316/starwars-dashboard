@@ -20,6 +20,8 @@ import {
 import useStarWarsArrayData from "@/hooks/Global/useStarWarsArrayData";
 import { starWarsUtils } from "@/utils/starWarsUtils";
 import { formatNumber } from "@/functions/DateHelpers";
+import EntityName from "../../Records/EntityName";
+import StatsCard from "../../Records/StatsCard";
 
 
 
@@ -105,23 +107,13 @@ export default function StarshipModal({
             {/* Basic Info */}
 
             <div className="space-y-2">
-                <p className="text-white">Model: {starship.model}</p>
+                <p className="text-white">Name: {starship.model}</p>
             </div>
 
             {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {starshipStats.map((stat, index) => (
-                    <Card key={index} className="bg-[var(--space-gray)] border-[var(--rebel-yellow)] border">
-                        <CardBody className="flex flex-row items-center gap-3">
-                            {stat.icon}
-                            <div>
-                                <p className="text-sm text-white">{stat.label}</p>
-                                <p className="text-[var(--rebel-yellow)] font-semibold">
-                                    {stat.value}
-                                </p>
-                            </div>
-                        </CardBody>
-                    </Card>
+                    <StatsCard key={index} stat={stat} />
                 ))}
             </div>
 
@@ -131,15 +123,7 @@ export default function StarshipModal({
                     <h3 className="text-lg font-semibold mb-4 text-white">Technical Specifications</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2  gap-4">
                         {technicalStats.map((stat, index) => (
-                            <div key={index} className="flex items-center gap-3">
-                                {stat.icon}
-                                <div>
-                                    <p className="text-sm text-white">{stat.label}</p>
-                                    <p className="text-[var(--rebel-yellow)] font-semibold">
-                                        {stat.value}
-                                    </p>
-                                </div>
-                            </div>
+                            <StatsCard key={index} stat={stat} />
                         ))}
                     </div>
                 </CardBody>
@@ -151,15 +135,8 @@ export default function StarshipModal({
                     <h3 className="text-lg font-semibold mb-4 text-white">Capacity Information</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {capacityStats.map((stat, index) => (
-                            <div key={index} className="flex items-center gap-3">
-                                {stat.icon}
-                                <div>
-                                    <p className="text-sm text-white">{stat.label}</p>
-                                    <p className="text-[var(--rebel-yellow)] font-semibold">
-                                        {stat.value}
-                                    </p>
-                                </div>
-                            </div>
+                            <StatsCard key={index} stat={stat} />
+
                         ))}
                     </div>
                 </CardBody>
@@ -185,13 +162,8 @@ export default function StarshipModal({
                                     {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
-                                    {data.map((name, index) => (
-                                        <div
-                                            key={index}
-                                            className="p-2 rounded border border-[var(--rebel-yellow)]"
-                                        >
-                                            <p className="text-[var(--rebel-yellow)]">{name}</p>
-                                        </div>
+                                    {data.map((starship: any) => (
+                                        <EntityName entity={starship} keyName={key} key={starship.id} />
                                     ))}
                                 </div>
                             </div>

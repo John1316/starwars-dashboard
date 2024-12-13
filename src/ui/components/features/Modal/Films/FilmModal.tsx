@@ -13,17 +13,18 @@ import {
 } from "lucide-react";
 import useStarWarsArrayData from "@/hooks/Global/useStarWarsArrayData";
 import { starWarsUtils } from "@/utils/starWarsUtils";
+import { useRouter } from "next/navigation";
+import EntityName from "../../Records/EntityName";
 
 
 
 export default function FilmModal({
     film,
 }: FilmModalProps) {
-    const {relatedData} = useStarWarsArrayData(film)
+    const { relatedData } = useStarWarsArrayData(film)
     const { formatSectionTitle } = starWarsUtils;
 
-    const capitalize = (str: string) =>
-        str.charAt(0).toUpperCase() + str.slice(1);
+    const router = useRouter()
 
 
     const filmStats = [
@@ -80,10 +81,10 @@ export default function FilmModal({
                                 <Spinner color="primary" />
                             </div>
                         }
-                        if(error){
+                        if (error) {
                             return <div className="bg-red-500 text-white  p-2">
-                            {error}
-                        </div>
+                                {error}
+                            </div>
                         }
                         if (data.length) {
                             return <div>
@@ -91,13 +92,8 @@ export default function FilmModal({
                                     {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
-                                    {data.map((name, index) => (
-                                        <div
-                                            key={index}
-                                            className="p-2 rounded border border-[var(--rebel-yellow)]"
-                                        >
-                                            <p className="text-[var(--rebel-yellow)]">{name}</p>
-                                        </div>
+                                    {data.map((entity: any) => (
+                                        <EntityName entity={entity} keyName={key} key={entity.id} />
                                     ))}
                                 </div>
                             </div>

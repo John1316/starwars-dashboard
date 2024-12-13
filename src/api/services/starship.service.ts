@@ -5,7 +5,7 @@ function getStarshipsList(name: string | any = '', page?:number){
     const res = AxiosInstance(`get`, `${HTTPS_REQUESTS.starships}?page=${page}&search=${name}`)
     return res
 }
-function getStarshipListDetails(id: number){
+function getStarshipListDetails(id: number |  string){
     const res = AxiosInstance(`get`, `${HTTPS_REQUESTS.starships}/${id}`)
     return res
 } 

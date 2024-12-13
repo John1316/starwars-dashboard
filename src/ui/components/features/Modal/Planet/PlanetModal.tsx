@@ -18,6 +18,8 @@ import {
 import useStarWarsArrayData from "@/hooks/Global/useStarWarsArrayData";
 import { starWarsUtils } from "@/utils/starWarsUtils";
 import { formatNumber } from "@/functions/DateHelpers";
+import StatsCard from "../../Records/StatsCard";
+import EntityName from "../../Records/EntityName";
 
 
 
@@ -82,17 +84,7 @@ export default function PlanetModal({
             {/* Basic Info */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {planetStats.map((stat, index) => (
-                    <Card key={index} className="border-[var(--rebel-yellow)] bg-[var(--space-gray)] border">
-                        <CardBody className="flex flex-row items-center gap-3">
-                            {stat.icon}
-                            <div>
-                                <p className="text-sm text-white">{stat.label}</p>
-                                <p className="text-[var(--rebel-yellow)] font-semibold">
-                                    {stat.value}
-                                </p>
-                            </div>
-                        </CardBody>
-                    </Card>
+                    <StatsCard key={index} stat={stat} />
                 ))}
             </div>
             {/* Environment Summary */}
@@ -133,13 +125,8 @@ export default function PlanetModal({
                                     {formatSectionTitle(key)}:
                                 </h3>
                                 <div className="grid grid-cols-1 gap-2">
-                                    {data.map((name, index) => (
-                                        <div
-                                            key={index}
-                                            className="p-2 rounded border border-[var(--rebel-yellow)]"
-                                        >
-                                            <p className="text-[var(--rebel-yellow)]">{name}</p>
-                                        </div>
+                                    {data.map((planet: any) => (
+                                        <EntityName entity={planet} keyName={key} key={planet.id} />
                                     ))}
                                 </div>
                             </div>
