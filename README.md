@@ -4,10 +4,10 @@ A brief description of your project, explaining what it does or its purpose.
 
 ## Table of Contents
 - [Installation](#installation)
-- [Running the Project](#running-the-project)
+- [Running the Project](#Steps-to-Run)
 - [Building the Project](#building-the-project)
 - [Starting the Built Project](#starting-the-built-project)
-- [Project Structure](#project-structure)
+- [Steps to Run Test By Jest](#Steps-to-run-test-by-jest)
 - [Technologies Used](#technologies-used)
 
 ## Installation
@@ -37,23 +37,32 @@ Install dependencies: If using npm:
 npm install
 ```
 
-## Steps to Run 
+## Steps-to-Run
 4. **Run Local**:
 ```
 npm  run dev
 ```
-### Steps to Run Build 
+## Building-the-project
 5. **Run Build**:
 ```
 npm  run build
 ```
-
+## starting-the-built-project
+6. **Run Start**:
+```
+npm  run start
+```
+## Steps-to-run-test-by-jest
+7. **Run Test**:
+```
+npm  run test
+```
 ### Steps to Run project with .env 
-6. **NEXT_PUBLIC_API_URL**:
+8. **NEXT_PUBLIC_API_URL**:
 ```
 NEXT_PUBLIC_API_URL=https://swapi.dev
 ```
-## Table of uses technologies
+## technologies-used
 - [React](https://react.dev) - A JavaScript library for building user interfaces
 - [NextUI](https://nextui.org) - A React component library for styling
 - [JEST](https://jestjs.io) - A Javascript library for unit testing
