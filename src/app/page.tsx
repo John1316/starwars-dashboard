@@ -28,6 +28,7 @@ export default function Home() {
     setSelectedCharacter,
     toggleModal,
   } = usePeopleHook();
+    console.log("🚀 ~ Home ~ totalPages:", totalPages)
 
   const columns = [
     {
