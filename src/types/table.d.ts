@@ -11,7 +11,7 @@ type TableProps = {
   data: T[];
   sortColumn?: string;
   sortDirection?: SortDirection;
-  onSort?: (columnKey: string) => void;
+onSort?: (columnKey: string) => void;
   isLoading?: boolean;
   emptyMessage?: string;
 };

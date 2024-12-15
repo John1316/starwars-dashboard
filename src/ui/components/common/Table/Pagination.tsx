@@ -8,6 +8,10 @@ export default function Pagination({
   onPageChange,
   className = '',
 }: PaginationProps) {
+  // console.log("🚀 ~ totalPages:", !totalPages , totalPages < 2)
+  if(!totalPages || totalPages < 2){
+     return
+  }
   return (
     <div className={`flex items-center justify-center gap-2 mt-4 ${className}`}>
       <button

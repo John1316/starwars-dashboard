@@ -12,12 +12,18 @@ export default function TableLayout({
     isLoading,
     emptyMessage = "No data available"
 }: TableProps) {
+    console.log("🚀 ~ data:", !data?.length)
     return (
         <div className="w-full h-full overflow-x-auto rounded-lg border-2 border-[var(--rebel-yellow)]">
             {(() => {
                 if (isLoading) {
                     return <LoadingScreen />
 
+                }
+                if(!data?.length){
+                    return <div className="min-h-[50vh] flex items-center justify-center">
+                        <h4 className='text-white'>{emptyMessage}</h4>
+                    </div>
                 }
                 return <table className="w-full min-w-full table-auto">
                     <thead>
@@ -50,7 +56,7 @@ export default function TableLayout({
                         </tr>
                     </thead>
                     <tbody className="divide-y divide-[var(--rebel-yellow)]">
-                        {data.length === 0 ? (
+                        {!data?.length ? (
                             <tr>
                                 <td
                                     colSpan={columns.length}
@@ -60,7 +66,7 @@ export default function TableLayout({
                                 </td>
                             </tr>
                         ) : (
-                            data.map((row: any, rowIndex: number) => (
+                            data?.map((row: any, rowIndex: number) => (
                                 <tr
                                     key={rowIndex}
                                     className="transition-colors hover:bg-[var(--rebel-yellow-overlay)]"
