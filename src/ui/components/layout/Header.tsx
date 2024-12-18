@@ -1,4 +1,4 @@
-import { Image } from '@nextui-org/react'
+import Image from 'next/image'
 import React from 'react'
 // import { Imperial } from 'lucide-react';
 
@@ -9,14 +9,13 @@ export default function Header({children}: ChildrenProps) {
         <div className="flex items-center gap-4">
           {children}
           <div className="flex items-center gap-3">
-            {/* <Imperial className="text-[var(--rebel-yellow)]" size={32} /> */}
-            {/* <h1 className="md:text-2xl text-md font-bold tracking-wider">
-              GALACTIC DASHBOARD
-            </h1> */}
-            <Image 
+            <Image
+            
             src='/logo-white.png' 
             width={100}
-            radius='none'
+            loading={'lazy'}
+            height={100}
+            alt='logo'
             />
           </div>
         </div>

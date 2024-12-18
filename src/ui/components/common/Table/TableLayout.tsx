@@ -14,11 +14,12 @@ export default function TableLayout({
 }: TableProps) {
     console.log("🚀 ~ data:", !data?.length)
     return (
-        <div className="w-full h-full overflow-x-auto rounded-lg border-2 border-[var(--rebel-yellow)]">
+        <div className="min-h-[50vh] w-full h-full overflow-x-auto rounded-lg border-2 border-[var(--rebel-yellow)]">
             {(() => {
                 if (isLoading) {
-                    return <LoadingScreen />
-
+                    return  <div className="min-h-[50vh] flex items-center justify-center">
+                        <LoadingScreen />
+                    </div>
                 }
                 if(!data?.length){
                     return <div className="min-h-[50vh] flex items-center justify-center">
